@@ -73,6 +73,26 @@ The detection of landmarks can be done as the following:
 
 
 
+Face genometric normalization using the Landmark detection
+----------------------------------------------------------
+
+The detection of landmarks can be done as the following:
+
+.. doctest:: dlibtest
+
+   >>> import bob.ip.dlib
+   >>> import bob.io.base
+   >>> import bob.io.base.test_utils
+   >>> import bob.ip.facedetect
+   >>> dlib_color_image = bob.io.base.load(bob.io.base.test_utils.datafile('image_r10.hdf5', 'bob.ip.dlib'))
+   >>> normimage = bob.ip.dlib.AlignDLib()(dlib_color_image, bob.ip.facedetect.BoundingBox((0,0),(116,116)))
+
+
+.. plot:: plot/plot_align_faces.py
+   :include-source: False
+
+
+
 
 
 ===========

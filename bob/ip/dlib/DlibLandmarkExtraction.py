@@ -10,6 +10,7 @@ logger = bob.core.log.setup("bob.ip.dlib")
 bob.core.log.set_verbosity_level(logger, 3)
 import dlib
 from .utils import bounding_box_2_rectangle, bob_to_dlib_image_convertion
+from .FaceDetector import FaceDetector
 
 
 class DlibLandmarkExtraction(object):
@@ -31,10 +32,10 @@ class DlibLandmarkExtraction(object):
             if not os.path.exists(self.model):
                 raise ValueError("Model not found: {0}".format(self.model))
 
-        self.face_detector = bob.ip.dlib.FaceDetector()
+        self.face_detector = FaceDetector()
         self.predictor = dlib.shape_predictor(self.model)
 
-    def __call__(self, image, bb=None):
+    def __call__(self, image, bb=None, xy_output=False):
 
         # Detecting the face if the bounding box is not passed
         if bb is None:
@@ -45,8 +46,14 @@ class DlibLandmarkExtraction(object):
         else:
             bb = bounding_box_2_rectangle(bb)
 
+        if bb is None:
+            raise ValueError("Face not found in the image.")
+
         points = self.predictor(bob_to_dlib_image_convertion(image), bb)
-        return list(map(lambda p: (p.y, p.x), points.parts()))
+        if xy_output:
+            return list(map(lambda p: (p.x, p.y), points.parts()))
+        else:
+            return list(map(lambda p: (p.y, p.x), points.parts()))
 
     @staticmethod
     def get_dlib_model_path():

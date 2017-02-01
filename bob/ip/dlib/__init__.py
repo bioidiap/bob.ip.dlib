@@ -1,5 +1,6 @@
 from .FaceDetector import FaceDetector
 from .DlibLandmarkExtraction import DlibLandmarkExtraction
+from .AlignDlib import AlignDLib
 import numpy
 
 
