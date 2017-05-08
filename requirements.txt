@@ -1,5 +1,4 @@
 setuptools
 bob.extension
-dlib
 bob.core
 bob.ip.facedetect
