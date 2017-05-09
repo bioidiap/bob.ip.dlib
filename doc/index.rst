@@ -4,9 +4,9 @@
 
 .. _bob.ip.dlib:
 
-=======================
+========================
  Bob interface for dlib
-=======================
+========================
 
 This package binds some functionalities from dlib.
 For the moment we have the face detection and the face landmark detection binded.
@@ -65,7 +65,7 @@ The detection of landmarks can be done as the following:
    >>> import bob.io.base.test_utils
    >>> dlib_color_image = bob.io.base.load(bob.io.base.test_utils.datafile('testimage.jpg', 'bob.ip.facedetect'))
    >>> points = bob.ip.dlib.DlibLandmarkExtraction()(dlib_color_image)
-   >>> print points[0]
+   >>> print (points[0])
    (192, 77)
 
 .. plot:: plot/plot_landmarks.py
@@ -95,9 +95,9 @@ The detection of landmarks can be done as the following:
 
 
 
-===========
+============
  Python API
-===========
+============
 
 .. toctree::
    :maxdepth: 2
