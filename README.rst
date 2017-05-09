@@ -16,9 +16,9 @@
    :target: https://pypi.python.org/pypi/bob.ip.dlib
 
 
-=================================
+================================== 
  Bob interface for dlib functions
-=================================
+==================================
 
 This package wraps some functionalities from dlib.
 
