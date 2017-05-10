@@ -27,7 +27,7 @@ The most simple face detection task is to detect a single face in an image. This
    >>> import bob.io.base.test_utils
    >>> dlib_color_image = bob.io.base.load(bob.io.base.test_utils.datafile('testimage.jpg', 'bob.ip.facedetect'))
    >>> dlib_bounding_box, _ = bob.ip.dlib.FaceDetector().detect_single_face(dlib_color_image)
-   >>> print (dlib_bounding_box.topleft, dlib_bounding_box.bottomright)
+   >>> print (tuple((dlib_bounding_box.topleft, dlib_bounding_box.bottomright)))
    ((114, 64), (338, 288))
 
 .. plot:: plot/plot_single_faces.py
@@ -44,6 +44,7 @@ The detection of multiple faces can be achieved with a single command:
 
    >>> import bob.ip.dlib
    >>> import bob.io.base
+   >>> import bob.io.base.test_utils
    >>> dlib_color_image = bob.io.base.load(bob.io.base.test_utils.datafile('multiple-faces.jpg', 'bob.ip.dlib'))
    >>> dlib_bounding_box, _ = bob.ip.dlib.FaceDetector().detect_all_faces(dlib_color_image)
    >>> print ((dlib_bounding_box[0].topleft, dlib_bounding_box[0].bottomright))
