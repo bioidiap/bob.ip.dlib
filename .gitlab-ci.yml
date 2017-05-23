@@ -108,6 +108,7 @@ stages:
 # -------------
 # Build Targets
 # -------------
+
 # Linux + Python 2.7: Builds, tests, uploads wheel and deploys (if needed)
 build_linux_27:
   <<: *build_job
@@ -176,7 +177,7 @@ docs_linux_35:
     - conda-linux
 
 
-# Linux + Python 3.6: Builds, tests and uploads wheel
+# Linux + Python 3.6: Builds and tests
 build_linux_36:
   <<: *build_job
   variables: &linux_36_build_variables
@@ -187,22 +188,6 @@ build_linux_36:
 
 test_linux_36:
   <<: *test_job
-  variables: *linux_36_build_variables
-  dependencies:
-    - build_linux_36
-  tags:
-    - conda-linux
-
-wheels_linux_36:
-  <<: *wheels_job
-  variables: *linux_36_build_variables
-  dependencies:
-    - build_linux_36
-  tags:
-    - conda-linux
-
-docs_linux_36:
-  <<: *docs_job
   variables: *linux_36_build_variables
   dependencies:
     - build_linux_36
