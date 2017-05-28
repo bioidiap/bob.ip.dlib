@@ -168,6 +168,14 @@ wheels_linux_35:
   tags:
     - conda-linux
 
+docs_linux_35:
+  <<: *docs_job
+  variables: *linux_35_build_variables
+  dependencies:
+    - build_linux_35
+  tags:
+    - conda-linux
+
 
 # Linux + Python 3.6: Builds and tests
 build_linux_36:
