@@ -3,9 +3,9 @@
 .. Fri 17 Jul 02:49:53 2016 CEST
 
 .. image:: http://img.shields.io/badge/docs-stable-yellow.svg
-   :target: http://pythonhosted.org/bob.ip.dlib/index.html
+   :target: https://www.idiap.ch/software/bob/docs/bob/bob.ip.dlib/stable/index.html
 .. image:: http://img.shields.io/badge/docs-latest-orange.svg
-   :target: https://www.idiap.ch/software/bob/docs/latest/bob/bob.ip.dlib/master/index.html
+   :target: https://www.idiap.ch/software/bob/docs/bob/bob.ip.dlib/master/index.html
 .. image:: https://gitlab.idiap.ch/bob/bob.ip.dlib/badges/master/build.svg
    :target: https://gitlab.idiap.ch/bob/bob.ip.dlib/commits/master
 .. image:: https://gitlab.idiap.ch/bob/bob.ip.dlib/badges/master/coverage.svg
@@ -14,11 +14,9 @@
    :target: https://gitlab.idiap.ch/bob/bob.ip.dlib
 .. image:: http://img.shields.io/pypi/v/bob.ip.dlib.svg
    :target: https://pypi.python.org/pypi/bob.ip.dlib
-.. image:: http://img.shields.io/pypi/dm/bob.ip.dlib.svg
-   :target: https://pypi.python.org/pypi/bob.ip.dlib
 
 
-================================== 
+==================================
  Bob interface for dlib functions
 ==================================
 
@@ -28,7 +26,7 @@ This package wraps some functionalities from dlib.
 Installation
 ------------
 
-Complete Bob's `installation`_ instructions. Then, to install this pacakge,
+Complete Bob's `installation`_ instructions. Then, to install this package,
 run::
 
   $ conda install bob.ip.dlib
@@ -36,7 +34,7 @@ run::
 
 Documentation
 -------------
-For further documentation on this package, please read the `Latest Version <https://www.idiap.ch/software/bob/docs/latest/bioidiap/bob.ip.dlib/master/index.html>`_ of the documentation.
+For further documentation on this package, please read the `Latest Version <https://www.idiap.ch/software/bob/docs/bioidiap/bob.ip.dlib/master/index.html>`_ of the documentation.
 
 
 
