@@ -58,7 +58,7 @@ class FaceDetector(object):
     def detect_single_face(self, image):
 
         faces = self.detect_all_faces(image)
-        if len(faces) > 1:
+        if len(faces) > 1 and not all([not f for f in faces]):
             index = numpy.argmax([(f.bottomright[0] - f.topleft[0]) * (f.bottomright[1] - f.topleft[1]) for f in faces[0]])
             return (faces[0][index], faces[1][index])
         else:
