@@ -36,12 +36,23 @@ class FaceDetector(object):
         """
         assert image is not None
 
+        if len(image.shape) == 2:
+            rows, cols = image.shape
+        if len(image.shape) == 3:
+            _, rows, cols = image.shape
+
         try:
             rectangles = self.face_detector(bob_to_dlib_image_convertion(image), 1)
             bbs = []
             for r in rectangles:
-                bbs.append(BoundingBox((r.top(), r.left()),
-                                       (r.width(), r.height()),
+
+                top  = numpy.max( [0, r.top()] )
+                left = numpy.max( [0, r.left()])
+                height = numpy.min( [rows-top,  r.height()] )
+                width  = numpy.min( [cols-left, r.width() ] )
+
+                bbs.append(BoundingBox((top, left),
+                                       (height, width),
                                        ))
 
             # This detector does not have the `quality` of the detection so I will fill it up with 100
