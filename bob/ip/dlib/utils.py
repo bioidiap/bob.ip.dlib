@@ -1,6 +1,7 @@
 import numpy
 from bob.ip.facedetect import BoundingBox
 import dlib
+import bob.io.image
 
 
 def bob_to_dlib_image_convertion(bob_image, change_color=True):
@@ -59,6 +60,21 @@ def bounding_box_2_rectangle(bb):
                           bb.bottomright[1], bb.bottomright[0])
 
 
+def rectangle_2_bounding_box(rectangle):
+    """
+    Converts dlib.rectangle to bob.ip.facedetect.BoundingBox 
+    """
+
+    assert isinstance(rectangle, dlib.rectangle)
+
+    top  = numpy.max( [0, rectangle.top()] )
+    left = numpy.max( [0, rectangle.left()])
+    height = numpy.min( [top,  rectangle.height()] )
+    width  = numpy.min( [left, rectangle.width() ] )
+
+    return BoundingBox((top, left),
+                       (height, width))
+    
 
 
 # gets sphinx autodoc done right - don't remove it
