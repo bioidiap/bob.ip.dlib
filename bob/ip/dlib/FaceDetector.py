@@ -20,19 +20,17 @@ class FaceDetector(object):
     """
 
     def __init__(self):
-        """
-        """
-
         self.face_detector = dlib.get_frontal_face_detector()
 
     def detect_all_faces(self, image):
         """
         Find all face bounding boxes in an image.
 
-        **Parameters**
+        Parameters
+        ----------
 
-        name: image
-          RGB image
+        image:  2D or 3D :py:class:`numpy.ndarray`
+          GRAY scaled or RGB image in the format (CxWxH)
         """
         assert image is not None
 
@@ -67,6 +65,15 @@ class FaceDetector(object):
             return []
 
     def detect_single_face(self, image):
+        """
+        Detect the biggest detected face in an image
+
+        Parameters
+        ----------
+
+        image:  2D or 3D :py:class:`numpy.ndarray`
+          GRAY scaled or RGB image in the format (CxWxH)
+        """
 
         faces = self.detect_all_faces(image)
         if len(faces) > 1 and not all([not f for f in faces]):

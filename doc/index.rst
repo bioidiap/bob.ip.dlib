@@ -65,9 +65,9 @@ The detection of landmarks can be done as the following:
    >>> import bob.io.base
    >>> import bob.io.base.test_utils
    >>> dlib_color_image = bob.io.base.load(bob.io.base.test_utils.datafile('testimage.jpg', 'bob.ip.facedetect'))
-   >>> points = bob.ip.dlib.DlibLandmarkExtraction()(dlib_color_image)
-   >>> print (points[0])
-   (192, 77)
+   >>> points = bob.ip.dlib.DlibLandmarkExtraction(bob_landmark_format=True)(dlib_color_image)
+   >>> print (points['reye'])
+   (17, 293)
 
 .. plot:: plot/plot_landmarks.py
    :include-source: False
