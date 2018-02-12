@@ -47,7 +47,7 @@ setup(
     # information before releasing code publicly.
     name = 'bob.ip.dlib',
     version = open("version.txt").read().rstrip(),
-    description = 'Feature extractor using caffe CNNs',
+    description = 'Bob interface for dlib functions',
 
     url = 'https://gitlab.idiap.ch/bob/bob.ip.dlib',
     license = 'BSD',
