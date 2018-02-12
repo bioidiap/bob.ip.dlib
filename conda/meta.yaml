@@ -28,6 +28,8 @@ requirements:
   run:
     - python
     - setuptools
+    - dlib
+    - bob.ip.facedetect
 
 test:
   imports:
