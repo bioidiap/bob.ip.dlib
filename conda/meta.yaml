@@ -20,7 +20,9 @@ requirements:
   host:
     - python {{ python }}
     - setuptools {{ setuptools }}
+    # opencv has a run_exports entry
     - opencv {{ opencv }}
+    - dlib {{ dlib }}
     - bob.extension
     - bob.core
     - bob.ip.facedetect
@@ -28,8 +30,8 @@ requirements:
   run:
     - python
     - setuptools
-    - dlib {{ dlib }}
- 
+    - {{ pin_compatible('dlib') }}
+
 test:
   imports:
     - {{ name }}
