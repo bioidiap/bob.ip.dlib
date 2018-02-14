@@ -20,8 +20,7 @@ requirements:
   host:
     - python {{ python }}
     - setuptools {{ setuptools }}
-    - opencv
-    - dlib
+    - opencv {{ opencv }}
     - bob.extension
     - bob.core
     - bob.ip.facedetect
@@ -29,9 +28,8 @@ requirements:
   run:
     - python
     - setuptools
-    - dlib
-    - bob.ip.facedetect
-
+    - dlib {{ dlib }}
+ 
 test:
   imports:
     - {{ name }}
