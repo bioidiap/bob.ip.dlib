@@ -28,7 +28,7 @@ The most simple face detection task is to detect a single face in an image. This
    >>> dlib_color_image = bob.io.base.load(bob.io.base.test_utils.datafile('testimage.jpg', 'bob.ip.facedetect'))
    >>> dlib_bounding_box, _ = bob.ip.dlib.FaceDetector().detect_single_face(dlib_color_image)
    >>> print (tuple((dlib_bounding_box.topleft, dlib_bounding_box.bottomright)))
-   ((114, 64), (338, 288))
+   ((118, 68), (342, 292))
 
 .. plot:: plot/plot_single_faces.py
    :include-source: False
@@ -48,7 +48,7 @@ The detection of multiple faces can be achieved with a single command:
    >>> dlib_color_image = bob.io.base.load(bob.io.base.test_utils.datafile('multiple-faces.jpg', 'bob.ip.dlib'))
    >>> dlib_bounding_box, _ = bob.ip.dlib.FaceDetector().detect_all_faces(dlib_color_image)
    >>> print ((dlib_bounding_box[0].topleft, dlib_bounding_box[0].bottomright))
-   ((162, 178), (238, 254))
+   ((163, 179), (238, 255))
 
 .. plot:: plot/plot_multiple_faces.py
    :include-source: False
@@ -67,7 +67,7 @@ The detection of landmarks can be done as the following:
    >>> dlib_color_image = bob.io.base.load(bob.io.base.test_utils.datafile('testimage.jpg', 'bob.ip.facedetect'))
    >>> points = bob.ip.dlib.DlibLandmarkExtraction(bob_landmark_format=True)(dlib_color_image)
    >>> print (points['reye'])
-   (17, 293)
+   (173, 222)
 
 .. plot:: plot/plot_landmarks.py
    :include-source: False
