@@ -20,6 +20,7 @@ requirements:
   host:
     - python {{ python }}
     - setuptools {{ setuptools }}
+    - opencv
     - dlib
     - bob.extension
     - bob.core
