@@ -12,7 +12,6 @@ This package binds some functionalities from dlib.
 For the moment we have the face detection and the face landmark detection binded.
 
 
-===========
  User guide
 ===========
 
@@ -96,7 +95,6 @@ The detection of landmarks can be done as the following:
 
 
 
-============
  Python API
 ============
 
