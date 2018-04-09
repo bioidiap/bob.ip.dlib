@@ -16,19 +16,19 @@ from .FaceDetector import FaceDetector
 class DlibLandmarkExtraction(object):
     """
     Binds to the DLib landmark detection using the shape_predictor_68_face_landmarks,
-    
+
     This facial landmark detector is an implementation of [Kazemi2014]_
-    
+
     Parameters
     ----------
-    
+
     model: :py:class:`str`
       Path to the dlib pretrained model, if **None**, the model will be downloaded.
-      
+
     bob_landmark_format: :py:class:`bool`
       If **True**, `__call__` will return the landmarks with Bob dictionary keys ('leye', 'reye', `nose`, .....).
       If **False**, `__call__` will return a list with the detected landmarks
-    
+
     """
 
     def __init__(self, model=None, bob_landmark_format=False):
@@ -52,10 +52,12 @@ class DlibLandmarkExtraction(object):
 
         # Detecting the face if the bounding box is not passed
         if bb is None:
-            bb = bounding_box_2_rectangle(self.face_detector.detect_single_face(image)[0])
+            bb = self.face_detector.detect_single_face(image)
 
             if bb is None:
                 return None
+
+            bb = bounding_box_2_rectangle(bb[0])
         else:
             bb = bounding_box_2_rectangle(bb)
 
@@ -66,7 +68,7 @@ class DlibLandmarkExtraction(object):
         if self.bob_landmark_format:
             points = list(map(lambda p: (p.y, p.x), points.parts()))
             bob_landmarks = dict()
-            
+
             bob_landmarks['leye'] = ((points[37][0] + points[40][0])//2,
                                      (points[37][1] + points[40][1])//2)
 
@@ -76,7 +78,7 @@ class DlibLandmarkExtraction(object):
             bob_landmarks['nose'] = (points[33][0], points[33][1])
             bob_landmarks['mouthleft'] = (points[49][0], points[49][1])
             bob_landmarks['mouthright'] = (points[55][0], points[55][1])
-            
+
             return bob_landmarks
 
         else:
