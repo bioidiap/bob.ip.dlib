@@ -13,7 +13,7 @@ def test_face_detector():
     """
     Test FaceDetector class.
     """
-
+    
     image = np.zeros((3, 100, 100))
     result = FaceDetector().detect_single_face(image)
     assert result is None
@@ -29,8 +29,8 @@ def test_face_detector():
     del f
 
     result = FaceDetector().detect_single_face(image)
-    assert result[0].topleft == (0, 237)
-    assert result[0].bottomright == (84, 313)
+    assert result[0].topleft == (0, 236)
+    assert result[0].bottomright == (84, 312)
 
 
 def test_landmark():
