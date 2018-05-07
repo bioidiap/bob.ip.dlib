@@ -34,12 +34,12 @@ for p in points_after:
 
 ax = pyplot.subplot(1, 2, 1)
 ax.set_title("Before normalization")
-pyplot.imshow(bob.ip.dlib.utils.bob_to_dlib_image_convertion(dlib_image, change_color=True))
+pyplot.imshow(bob.io.image.to_matplotlib(dlib_image).astype("uint8"))
 pyplot.axis('off')
 
 ax = pyplot.subplot(1, 2, 2)
 ax.set_title("Normalized")
-pyplot.imshow(bob.ip.dlib.utils.bob_to_dlib_image_convertion(norm_image, change_color=True))
+pyplot.imshow(bob.io.image.to_matplotlib(norm_image).astype("uint8"))
 pyplot.axis('off')
 
 

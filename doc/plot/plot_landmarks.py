@@ -34,11 +34,11 @@ bob.ip.draw.box(image, bounding_box.topleft, bounding_box.size, color=(255, 0, 0
 
 ax = pyplot.subplot(1, 2, 1)
 ax.set_title("Dlib landmarks")
-pyplot.imshow(bob.ip.dlib.utils.bob_to_dlib_image_convertion(image, change_color=False))
+pyplot.imshow(bob.io.image.to_matplotlib(image).astype("uint8"))
 pyplot.axis('off')
 
 ax = pyplot.subplot(1, 2, 2)
 ax.set_title("Dlib landmarks for Bob")
-pyplot.imshow(bob.ip.dlib.utils.bob_to_dlib_image_convertion(bob_image, change_color=False))
+pyplot.imshow(bob.io.image.to_matplotlib(bob_image).astype("uint8"))
 pyplot.axis('off')
 

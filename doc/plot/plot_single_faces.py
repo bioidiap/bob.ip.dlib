@@ -26,11 +26,11 @@ bob.ip.draw.box(dlib_color_image, dlib_bounding_box.topleft, dlib_bounding_box.s
 
 ax = pyplot.subplot(1, 2, 1)
 ax.set_title("Dlib")
-pyplot.imshow(bob.ip.dlib.utils.bob_to_dlib_image_convertion(dlib_color_image, change_color=False))
+pyplot.imshow(bob.io.image.to_matplotlib(dlib_color_image).astype("uint8"))
 pyplot.axis('off')
 
 ax = pyplot.subplot(1, 2, 2)
 ax.set_title("Bob")
-pyplot.imshow(bob.ip.dlib.utils.bob_to_dlib_image_convertion(bob_color_image, change_color=False))
+pyplot.imshow(bob.io.image.to_matplotlib(bob_color_image).astype("uint8"))
 pyplot.axis('off')
 
