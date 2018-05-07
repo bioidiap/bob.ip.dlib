@@ -6,10 +6,11 @@
 import numpy
 import os
 import bob.core
+import bob.io.image
 logger = bob.core.log.setup("bob.ip.dlib")
 bob.core.log.set_verbosity_level(logger, 3)
 import dlib
-from .utils import bounding_box_2_rectangle, bob_to_dlib_image_convertion
+from .utils import bounding_box_2_rectangle
 from .FaceDetector import FaceDetector
 
 
@@ -64,7 +65,7 @@ class DlibLandmarkExtraction(object):
         if bb is None:
             raise ValueError("Face not found in the image.")
 
-        points = self.predictor(bob_to_dlib_image_convertion(image), bb)
+        points = self.predictor(bob.io.image.to_matplotlib(image), bb)
         if self.bob_landmark_format:
             points = list(map(lambda p: (p.y, p.x), points.parts()))
             bob_landmarks = dict()

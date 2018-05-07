@@ -10,7 +10,7 @@ import bob.core
 logger = bob.core.log.setup("bob.ip.dlib")
 bob.core.log.set_verbosity_level(logger, 3)
 import dlib
-from .utils import bob_to_dlib_image_convertion
+import bob.io.image
 from bob.ip.facedetect import BoundingBox
 
 
@@ -40,7 +40,7 @@ class FaceDetector(object):
             _, rows, cols = image.shape
 
         try:
-            rectangles = self.face_detector(bob_to_dlib_image_convertion(image), 1)
+            rectangles = self.face_detector(bob.io.image.to_matplotlib(image), 1)
             bbs = []
             for r in rectangles:
 

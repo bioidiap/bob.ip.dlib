@@ -9,11 +9,10 @@ import bob.core
 logger = bob.core.log.setup("bob.ip.dlib")
 bob.core.log.set_verbosity_level(logger, 3)
 import dlib
-from .utils import bounding_box_2_rectangle, bob_to_dlib_image_convertion
 import cv2
 import numpy
+import bob.io.image
 from .DlibLandmarkExtraction import DlibLandmarkExtraction
-from .utils import bob_to_dlib_image_convertion, dlib_to_bob_image_convertion
 from .FaceDetector import FaceDetector
 
 
@@ -96,4 +95,4 @@ class AlignDLib(object):
         H = cv2.getAffineTransform(landmarks[landmark_indices],
                                    image_size[0] * MINMAX_TEMPLATE[landmark_indices])
 
-        return dlib_to_bob_image_convertion(cv2.warpAffine(bob_to_dlib_image_convertion(image), H, image_size))
+        return bob.io.image.to_bob(cv2.warpAffine(bob.io.image.to_matplotlib(image), H, image_size))
