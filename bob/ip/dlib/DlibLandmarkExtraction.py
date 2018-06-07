@@ -11,38 +11,9 @@ logger = bob.core.log.setup("bob.ip.dlib")
 bob.core.log.set_verbosity_level(logger, 3)
 import dlib
 from .utils import bounding_box_2_rectangle
+import bob.extension.download
 from .FaceDetector import FaceDetector
 
-
-def download_file(url, out_file):
-    """Downloads a file from a given url
-
-    Parameters
-    ----------
-    url : str
-        The url to download form.
-    out_file : str
-        Where to save the file.
-    """
-    from bob.io.base import create_directories_safe
-    import os
-    create_directories_safe(os.path.dirname(out_file))
-
-    import sys
-    if sys.version_info[0] < 3:
-        # python2 technique for downloading a file
-        from urllib2 import urlopen
-        with open(out_file, 'wb') as f:
-            response = urlopen(url)
-            f.write(response.read())
-
-    else:
-        # python3 technique for downloading a file
-        from urllib.request import urlopen
-        from shutil import copyfileobj
-        with urlopen(url) as response:
-            with open(out_file, 'wb') as f:
-                copyfileobj(response, f)
 
 class DlibLandmarkExtraction(object):
     """
@@ -139,34 +110,11 @@ class DlibLandmarkExtraction(object):
                                 "shape_predictor_68_face_landmarks.dat.bz2")
         urls = [
             # This is a private link at Idiap to save bandwidth.
-            "http://beatubulatest.lab.idiap.ch/private/wheels/gitlab/"
+            "http://www.idiap.ch/private/wheels/gitlab/"
             "shape_predictor_68_face_landmarks.dat.bz2",
             # this works for everybody
             "http://dlib.net/files/"
             "shape_predictor_68_face_landmarks.dat.bz2",
         ]
-
-        for url in urls:
-            try:
-                logger.info(
-                    "Downloading DLIB model from "
-                    "{} ...".format(url))
-                download_file(url, zip_file)
-                break
-            except Exception:
-                logger.warning(
-                    "Could not download from the %s url", url, exc_info=True)
-        else:  # else is for the for loop
-            if not os.path.isfile(zip_file):
-                raise RuntimeError("Could not download the zip file.")
-
-        # Unzip
-        logger.info("Unziping in {0}".format(DlibLandmarkExtraction.get_modelpath()))
-        
-        t = bz2.BZ2File(zip_file)
-        open(os.path.join(DlibLandmarkExtraction.get_modelpath(),'shape_predictor_68_face_landmarks.dat'), 'wb').write(t.read())
-        t.close()        
-        
-        os.unlink(zip_file)
-        
-
+ 
+        bob.extension.download.download_and_unzip(urls, zip_file)
