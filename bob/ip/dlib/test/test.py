@@ -13,7 +13,7 @@ def test_face_detector():
     """
     Test FaceDetector class.
     """
-
+    
     image = np.zeros((3, 100, 100))
     result = FaceDetector().detect_single_face(image)
     assert result is None
