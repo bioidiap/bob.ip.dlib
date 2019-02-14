@@ -49,7 +49,6 @@ class DlibLandmarkExtraction(object):
         self.predictor = dlib.shape_predictor(self.model)
         self.bob_landmark_format = bob_landmark_format
 
-
     def __call__(self, image, bb=None, xy_output=False):
 
         # Detecting the face if the bounding box is not passed
@@ -71,10 +70,10 @@ class DlibLandmarkExtraction(object):
             points = list(map(lambda p: (p.y, p.x), points.parts()))
             bob_landmarks = dict()
 
-            bob_landmarks['leye'] = ((points[37][0] + points[40][0])//2,
+            bob_landmarks['reye'] = ((points[37][0] + points[40][0])//2,
                                      (points[37][1] + points[40][1])//2)
 
-            bob_landmarks['reye'] = ((points[43][0] + points[46][0])//2,
+            bob_landmarks['leye'] = ((points[43][0] + points[46][0])//2,
                                      (points[43][1] + points[46][1])//2)
 
             bob_landmarks['nose'] = (points[33][0], points[33][1])
@@ -116,5 +115,5 @@ class DlibLandmarkExtraction(object):
             "http://dlib.net/files/"
             "shape_predictor_68_face_landmarks.dat.bz2",
         ]
- 
+
         bob.extension.download.download_and_unzip(urls, zip_file)
