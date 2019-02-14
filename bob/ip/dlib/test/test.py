@@ -13,7 +13,7 @@ def test_face_detector():
     """
     Test FaceDetector class.
     """
-    
+
     image = np.zeros((3, 100, 100))
     result = FaceDetector().detect_single_face(image)
     assert result is None
@@ -49,5 +49,6 @@ def test_landmark():
     # Testing bob landmarks
     detector = bob.ip.dlib.DlibLandmarkExtraction(bob_landmark_format=True)
     points_dlib = detector(test_file)
-    assert np.allclose([p in ['leye', 'reye', 'nose', 'mouthleft', 'mouthright'] for p in points_dlib], True)
-
+    assert all([p in ['leye', 'reye', 'nose', 'mouthleft', 'mouthright'] for p in points_dlib])
+    # leye x must be higher than reye y to conform to Bob format
+    assert points_dlib['leye'][1] > points_dlib['reye'][1]

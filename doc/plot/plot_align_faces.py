@@ -3,7 +3,6 @@ import bob.io.image
 import bob.io.base.test_utils
 import bob.ip.dlib
 import numpy
-import os
 from matplotlib import pyplot
 import bob.ip.draw
 from bob.ip.facedetect import BoundingBox
