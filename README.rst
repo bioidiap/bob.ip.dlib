@@ -2,7 +2,7 @@
 .. Tiago de Freitas Pereira <tiago.pereira@idiap.ch>
 .. Fri 17 Jul 02:49:53 2016 CEST
 
-.. image:: https://img.shields.io/badge/docs-available-orage.svg
+.. image:: https://img.shields.io/badge/docs-available-orange.svg
    :target: https://www.idiap.ch/software/bob/docs/bob/bob.ip.dlib/master/index.html
 .. image:: https://gitlab.idiap.ch/bob/bob.ip.dlib/badges/master/pipeline.svg
    :target: https://gitlab.idiap.ch/bob/bob.ip.dlib/commits/master
