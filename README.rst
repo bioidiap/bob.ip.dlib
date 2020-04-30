@@ -2,18 +2,14 @@
 .. Tiago de Freitas Pereira <tiago.pereira@idiap.ch>
 .. Fri 17 Jul 02:49:53 2016 CEST
 
-.. image:: http://img.shields.io/badge/docs-stable-yellow.svg
-   :target: https://www.idiap.ch/software/bob/docs/bob/bob.ip.dlib/stable/index.html
-.. image:: http://img.shields.io/badge/docs-latest-orange.svg
+.. image:: https://img.shields.io/badge/docs-available-orage.svg
    :target: https://www.idiap.ch/software/bob/docs/bob/bob.ip.dlib/master/index.html
-.. image:: https://gitlab.idiap.ch/bob/bob.ip.dlib/badges/master/build.svg
+.. image:: https://gitlab.idiap.ch/bob/bob.ip.dlib/badges/master/pipeline.svg
    :target: https://gitlab.idiap.ch/bob/bob.ip.dlib/commits/master
 .. image:: https://gitlab.idiap.ch/bob/bob.ip.dlib/badges/master/coverage.svg
    :target: https://gitlab.idiap.ch/bob/bob.ip.dlib/commits/master
 .. image:: https://img.shields.io/badge/gitlab-project-0000c0.svg
    :target: https://gitlab.idiap.ch/bob/bob.ip.dlib
-.. image:: http://img.shields.io/pypi/v/bob.ip.dlib.svg
-   :target: https://pypi.python.org/pypi/bob.ip.dlib
 
 
 ==================================
